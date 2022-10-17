@@ -18,14 +18,10 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    public void damagePlayer(int dmg)
     {
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            playerHp--;
-            CheckIfDead();
-        }
-                   
+        playerHp -= dmg;
+        CheckIfDead();
     }
 
     void CheckIfDead()
