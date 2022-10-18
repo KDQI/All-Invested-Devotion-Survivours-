@@ -12,7 +12,7 @@ public class Seek : MonoBehaviour
     private float defaultSpeed;
     private float speed;
     private GameObject target;
-    void Start()
+    void Awake()
     {
         target = GameObject.Find(targetName);
     }
@@ -26,6 +26,7 @@ public class Seek : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         if(seeking)
         {
             MoveTowardsTarget();

@@ -11,21 +11,41 @@ public class Enemy : Seek
     [SerializeField]
     private Animator anim;
     private bool attacking;
+    private SpriteRenderer sr;
+
+    private void Start()
+    {
+        sr = this.GetComponent<SpriteRenderer>();
+    }
 
     public void Update()
     {
-        if(inAttackRange())
+        Flip();
+        if (inAttackRange())
         {
             attack();
         }
     }
-
+    
+    public void Flip()
+    {
+        if(this.transform.position.x > getTarget().transform.position.x)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+        
+    }
     private bool inAttackRange()
     {
-        if(Vector3.Distance(this.transform.position, getTarget().transform.position) <= attackRange)
+        if (Vector3.Distance(this.transform.position, getTarget().transform.position) <= attackRange)
         {
             return true;
-        }else
+        }
+        else
         {
             return false;
         }
@@ -45,7 +65,7 @@ public class Enemy : Seek
 
     private void attack()
     {
-        if(!attacking)
+        if (!attacking)
         {
             StartCoroutine(waitForAttack());
         }
@@ -59,10 +79,26 @@ public class Enemy : Seek
         yield return new WaitForSeconds(attackCooldown);
         if (inDamageRange())
         {
-            Debug.Log("did damage");
+            Debug.Log("Enemy did damage");
             getTarget().GetComponent<PlayerHealth>().damagePlayer(1);
         }
         resetSpeed();
         attacking = false;
+    }
+
+    public void TakeDamage()
+    {
+        hp--;
+        Debug.Log("Enemy took damage " + hp + " hp remaining");
+        CheckIfEnemyDead();
+    }
+
+    private void CheckIfEnemyDead()
+    {
+        if (hp <= 0)
+        {
+            Debug.Log("Enemý Died");
+            Destroy(gameObject);
+        }
     }
 }
