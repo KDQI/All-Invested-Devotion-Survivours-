@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Startup : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject startingWeapon;
-    [SerializeField]
-    private WeaponSlot firstWeaponSlot;
 
-    private void Awake()
+    private void Start()
     {
-        GameObject weaponToAdd = Instantiate(startingWeapon, firstWeaponSlot.transform.position, Quaternion.identity);
-        firstWeaponSlot.setWeapon(weaponToAdd);
+        for(int i = 0; i < 8; i++)
+        {
+            WeaponManager.instance.addWeapon(0);
+        }
+        
     }
+
 }
