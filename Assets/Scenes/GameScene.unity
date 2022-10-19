@@ -75921,7 +75921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 5733209164473375999, guid: 1147cdb3fe7fa3f48a4a3a9a4461f60d, type: 3}
+  - {fileID: 4702198583549816969, guid: 1147cdb3fe7fa3f48a4a3a9a4461f60d, type: 3}
 --- !u!4 &1796746497
 Transform:
   m_ObjectHideFlags: 0

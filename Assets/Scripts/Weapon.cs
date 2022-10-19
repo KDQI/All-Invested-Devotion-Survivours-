@@ -8,6 +8,9 @@ public class Weapon : MonoBehaviour
     private GameObject bullet;
     [SerializeField]
     private Transform firePoint;
+    [SerializeField]
+    private GameObject graphics;
+    private Animator anim;
 
     [SerializeField]
     private float startFireRate;
@@ -15,6 +18,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        anim = graphics.GetComponent<Animator>();
         fireRate = startFireRate;
     }
 
@@ -31,5 +35,7 @@ public class Weapon : MonoBehaviour
     {
         Instantiate(bullet, firePoint.position, firePoint.transform.rotation);
         fireRate = startFireRate;
+        anim.speed = 1.2f / fireRate;
+        anim.SetTrigger("Reload");
     }
 }
