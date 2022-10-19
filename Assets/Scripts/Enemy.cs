@@ -86,7 +86,7 @@ public class Enemy : Seek
         attacking = false;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int dmg)
     {
         hp--;
         Debug.Log("Enemy took damage " + hp + " hp remaining");

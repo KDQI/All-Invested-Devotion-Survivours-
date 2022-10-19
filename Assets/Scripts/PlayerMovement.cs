@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         if (playerCanMove == true)
         {
             Move();
-            Turn();
         }
     }
 
