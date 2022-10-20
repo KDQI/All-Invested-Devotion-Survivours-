@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     private float speed;
     [SerializeField]
     private int dmg;
+    [SerializeField]
+    private bool pierceEnemies;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -23,7 +25,10 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(dmg);
-            Destroy(gameObject);
+            if(!pierceEnemies)
+            {
+                Destroy(gameObject);
+            }
         }
        
     }

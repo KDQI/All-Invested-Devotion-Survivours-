@@ -88,7 +88,7 @@ public class Enemy : Seek
 
     public void TakeDamage(int dmg)
     {
-        hp--;
+        hp -= dmg;
         Debug.Log("Enemy took damage " + hp + " hp remaining");
         CheckIfEnemyDead();
     }
