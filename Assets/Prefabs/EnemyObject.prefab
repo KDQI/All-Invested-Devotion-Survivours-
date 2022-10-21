@@ -257,6 +257,7 @@ MonoBehaviour:
   sr: {fileID: 7037202072943659989}
   damageText: {fileID: 3076766053717004259}
   takenDamageTxt: {fileID: 2224508953484679530}
+  coin: {fileID: 6008031974474292152, guid: c409386c83004b041849670cc5e2dbac, type: 3}
 --- !u!61 &546632298063844389
 BoxCollider2D:
   m_ObjectHideFlags: 0

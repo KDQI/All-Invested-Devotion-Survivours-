@@ -17,6 +17,8 @@ public class Enemy : Seek
     private GameObject damageText;
     [SerializeField]
     private TextMesh takenDamageTxt;
+    [SerializeField]
+    private GameObject coin;
 
 
     private void Start()
