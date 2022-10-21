@@ -47,7 +47,7 @@ MonoBehaviour:
   bullet: {fileID: 469236475441213884, guid: 272a86925a9ce09448727d4273a7695c, type: 3}
   firePoint: {fileID: 4702198583727810065}
   graphics: {fileID: 4702198584342976743}
-  startFireRate: 0.1
+  startFireRate: 0.75
 --- !u!1 &4702198583727810066
 GameObject:
   m_ObjectHideFlags: 0

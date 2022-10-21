@@ -18,7 +18,13 @@ public class WeaponSlot : MonoBehaviour
     }
     private void Update()
     {
-        if(inUse)
+        MoveWeapon();
+    }
+
+
+    private void MoveWeapon()
+    {
+        if (inUse)
         {
             Vector3 tPos = Camera.main.WorldToScreenPoint(targetPos.position);
             tPos = Input.mousePosition - tPos;
@@ -29,7 +35,6 @@ public class WeaponSlot : MonoBehaviour
             weapon.transform.position = this.transform.position;
         }
     }
-
     public bool isInUse()
     {
         if (inUse)

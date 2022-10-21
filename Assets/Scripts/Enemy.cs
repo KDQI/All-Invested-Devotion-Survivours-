@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Enemy : Seek
 {
     [SerializeField]
@@ -11,11 +11,17 @@ public class Enemy : Seek
     [SerializeField]
     private Animator anim;
     private bool attacking;
+    [SerializeField]
     private SpriteRenderer sr;
+    [SerializeField]
+    private GameObject damageText;
+    [SerializeField]
+    private TextMesh takenDamageTxt;
+
 
     private void Start()
     {
-        sr = this.GetComponent<SpriteRenderer>();
+       
     }
 
     public void Update()
@@ -90,7 +96,16 @@ public class Enemy : Seek
     {
         hp -= dmg;
         Debug.Log("Enemy took damage " + hp + " hp remaining");
+        StartCoroutine(ShowTakenDamage(dmg));
         CheckIfEnemyDead();
+    }
+
+    private IEnumerator ShowTakenDamage(int dmg)
+    {
+        takenDamageTxt.text = dmg.ToString();
+        damageText.SetActive(true);       
+        yield return new WaitForSeconds(1);
+        damageText.SetActive(false);
     }
 
     private void CheckIfEnemyDead()

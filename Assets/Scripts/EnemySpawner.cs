@@ -38,7 +38,7 @@ public class EnemySpawner : Spawner
         spawnCooldown = Time.time + startSpawnCooldown;
         for(int i = 0; i < enemySpawnAmount; i++)
         {
-            Vector2 pos = new Vector2(Random.Range(-minRange, maxRange), Random.Range(-minRange, maxRange));
+            Vector3 pos = new Vector3(Random.Range(-minRange, maxRange),   Random.Range(-minRange, maxRange), 10);
             int chosenEnemy = Random.Range(0, 100);
             for(int k = 0; k < enemyObjects.Length; k++)
             {

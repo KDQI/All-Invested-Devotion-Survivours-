@@ -12,8 +12,10 @@ public class Seek : MonoBehaviour
     private float defaultSpeed;
     private float speed;
     private GameObject target;
+    private Rigidbody2D rb;
     void Awake()
     {
+        rb = this.GetComponent<Rigidbody2D>();
         target = GameObject.Find(targetName);
     }
 
@@ -66,7 +68,7 @@ public class Seek : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
-        Vector3 targetPos = target.transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+        Vector3 targetPos = (target.transform.position - rb.transform.position).normalized;
+        rb.MovePosition(rb.transform.position + targetPos * speed * Time.deltaTime);
     }
 }
