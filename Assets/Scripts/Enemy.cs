@@ -7,7 +7,7 @@ public class Enemy : Seek
     [SerializeField]
     private int hp;
     [SerializeField]
-    private float attackRange, attackCooldown, speedForAttack, damageRange;
+    private float attackRange, attackCooldown, speedForAttack, damageRange, slowTime, slowedSpeed;
     [SerializeField]
     private Animator anim;
     private bool attacking;
@@ -37,7 +37,7 @@ public class Enemy : Seek
     
     public void Flip()
     {
-        if(this.transform.position.x > getTarget().transform.position.x)
+        if(this.transform.position.x > GetTarget().transform.position.x)
         {
             sr.flipX = true;
         }
@@ -49,7 +49,7 @@ public class Enemy : Seek
     }
     private bool inAttackRange()
     {
-        if (Vector3.Distance(this.transform.position, getTarget().transform.position) <= attackRange)
+        if (Vector3.Distance(this.transform.position, GetTarget().transform.position) <= attackRange)
         {
             return true;
         }
@@ -61,7 +61,7 @@ public class Enemy : Seek
 
     private bool inDamageRange()
     {
-        if (Vector3.Distance(this.transform.position, getTarget().transform.position) <= damageRange)
+        if (Vector3.Distance(this.transform.position, GetTarget().transform.position) <= damageRange)
         {
             return true;
         }
@@ -83,21 +83,30 @@ public class Enemy : Seek
     {
         attacking = true;
         anim.SetTrigger("Attacking");
-        setSpeed(speedForAttack);
+        SetSpeed(speedForAttack);
         yield return new WaitForSeconds(attackCooldown);
         if (inDamageRange())
         {
             Debug.Log("Enemy did damage");
-            getTarget().GetComponent<PlayerHealth>().damagePlayer(1);
+            GetTarget().GetComponent<PlayerHealth>().damagePlayer(1);
+            StartCoroutine(SlowForTime());
         }
-        resetSpeed();
+        ResetSpeed();
         attacking = false;
+    }
+
+    IEnumerator SlowForTime()
+    {
+        SetSpeed(slowedSpeed);
+        yield return new WaitForSeconds(slowTime);
+        ResetSpeed();
     }
 
     public void TakeDamage(int dmg)
     {
         hp -= dmg;
         Debug.Log("Enemy took damage " + hp + " hp remaining");
+        StartCoroutine(SlowForTime());
         StartCoroutine(ShowTakenDamage(dmg));
         CheckIfEnemyDead();
     }
@@ -114,8 +123,9 @@ public class Enemy : Seek
     {
         if (hp <= 0)
         {
-            Debug.Log("Enemý Died");
+            Debug.Log("Enemy Died");
             Destroy(gameObject);
+            ItemSpawner.instance.SpawnItem(0, this.transform.position);
         }
     }
 }

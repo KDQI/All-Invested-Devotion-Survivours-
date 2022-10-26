@@ -15,13 +15,13 @@ public class Seek : MonoBehaviour
     private Rigidbody2D rb;
     void Awake()
     {
+        speed = defaultSpeed;
         rb = this.GetComponent<Rigidbody2D>();
         target = GameObject.Find(targetName);
     }
 
-    public GameObject getTarget()
+    public GameObject GetTarget()
     {
-        speed = defaultSpeed;
         return target;
     }
 
@@ -35,27 +35,38 @@ public class Seek : MonoBehaviour
         }
     }
 
-    public void startSeeking()
+    public void StartSeeking()
     {
         seeking = true;
     }
 
-    public void stopSeeking()
+    public void StopSeeking()
     {
         seeking = false;
     }
 
-    public void setSpeed(float f)
+    public void SetSpeed(float f)
     {
         speed = f;
     }
 
-    public void resetSpeed()
+    public void SlowSpeed(float f)
+    {
+        Debug.Log("Slowing speed");
+        speed -= f;
+    }
+
+    public float GetDefaultSpeed()
+    {
+        return defaultSpeed;
+    }
+
+    public void ResetSpeed()
     {
         speed = defaultSpeed;
     }
 
-    public bool isSeeking()
+    public bool IsSeeking()
     {
         if(seeking)
         {
@@ -68,7 +79,7 @@ public class Seek : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
-        Vector3 targetPos = (target.transform.position - rb.transform.position).normalized;
-        rb.MovePosition(rb.transform.position + targetPos * speed * Time.deltaTime);
+        Vector3 targetPos = (target.transform.position - transform.position).normalized;
+        rb.MovePosition(transform.position + targetPos * speed * Time.deltaTime);
     }
 }

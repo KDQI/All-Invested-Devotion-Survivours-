@@ -247,12 +247,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: Player
   seeking: 1
-  defaultSpeed: 6
+  defaultSpeed: 4
   hp: 5
   attackRange: 3
   attackCooldown: 1
   speedForAttack: 6
   damageRange: 2.5
+  slowTime: 1.5
+  slowedSpeed: 2
   anim: {fileID: 1005270252561559261}
   sr: {fileID: 7037202072943659989}
   damageText: {fileID: 3076766053717004259}
@@ -271,7 +273,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.11259982}
+  m_Offset: {x: -0.017855048, y: -0.1610634}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -282,7 +284,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.8806521}
+  m_Size: {x: 0.8316529, y: 0.58987075}
   m_EdgeRadius: 0
 --- !u!61 &4891526109883665803
 BoxCollider2D:
@@ -297,7 +299,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009858012, y: -0.09868559}
+  m_Offset: {x: -0.037915707, y: -0.16755486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -308,7 +310,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.89743066, y: 0.7572637}
+  m_Size: {x: 0.5148239, y: 0.43587375}
   m_EdgeRadius: 0
 --- !u!50 &5453676679129883506
 Rigidbody2D:
