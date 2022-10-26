@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private int dmg;
+    private int dmg, particleId;
     [SerializeField]
     private bool pierceEnemies;
     private Rigidbody2D rb;
@@ -31,5 +31,10 @@ public class Bullet : MonoBehaviour
             }
         }
        
+    }
+
+    public void OnDestroy()
+    {
+        ObjectSpawner.instance.SpawnParticle(particleId, this.transform.position);
     }
 }

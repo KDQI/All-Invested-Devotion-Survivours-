@@ -125,7 +125,7 @@ public class Enemy : Seek
         {
             Debug.Log("Enemy Died");
             Destroy(gameObject);
-            ItemSpawner.instance.SpawnItem(0, this.transform.position);
+            ObjectSpawner.instance.SpawnItem(0, this.transform.position);
         }
     }
 }

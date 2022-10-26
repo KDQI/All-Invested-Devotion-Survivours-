@@ -75854,7 +75854,7 @@ GameObject:
   - component: {fileID: 1483463451}
   - component: {fileID: 1483463452}
   m_Layer: 0
-  m_Name: ItemManager
+  m_Name: ObjectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75888,6 +75888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 6008031974474292152, guid: c409386c83004b041849670cc5e2dbac, type: 3}
+  particles:
+  - {fileID: 4840222516038087987, guid: 935c9184ff8e89745926aae1156194dd, type: 3}
 --- !u!1 &1778684142
 GameObject:
   m_ObjectHideFlags: 0
