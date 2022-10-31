@@ -7,7 +7,10 @@ public class Startup : MonoBehaviour
 
     private void Start()
     {
-        WeaponManager.instance.addWeapon(0);
+        for(int i = 0; i < 8; i++)
+        {
+            WeaponManager.instance.addWeapon(0);
+        }
     }
 
 }
