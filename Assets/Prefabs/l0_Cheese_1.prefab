@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6008031974474292157}
   - component: {fileID: 6008031974474292154}
   - component: {fileID: 6008031974474292155}
+  - component: {fileID: -6264006252393435139}
   m_Layer: 0
   m_Name: l0_Cheese_1
   m_TagString: Coin
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ef4bc9ab0fd3bf647bcab79e93fa5d1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,3 +120,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6264006252393435139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008031974474292152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffe39a136d330a4d8aa0d87ba5dcced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
