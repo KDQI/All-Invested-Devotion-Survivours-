@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed;
+    public float speed;
 
     private Rigidbody2D rb;
 
@@ -12,9 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool playerCanMove;
 
-
+    public static PlayerMovement instance;
     void Start()
     {
+        instance = this;
         rb = GetComponent<Rigidbody2D>();
         playerCanMove = true;
 
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * Speed, moveDirection.y * Speed);
+        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
     }
     void Turn()
     {

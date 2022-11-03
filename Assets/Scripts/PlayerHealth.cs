@@ -10,11 +10,20 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Text textPlayerHp;
 
-    private int playerHp = 10;
+    public int playerHp;
+    public int playerMaxHp = 10;
 
+    public static PlayerHealth ph;
+
+
+    private void Awake()
+    {
+        ph = this;
+        playerHp = playerMaxHp;
+    }
     void Update()
     {
-        textPlayerHp.text = playerHp.ToString() + " / 10";
+        textPlayerHp.text = playerHp.ToString() + " / " + playerMaxHp;
         
     }
 

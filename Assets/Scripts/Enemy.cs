@@ -104,7 +104,7 @@ public class Enemy : Seek
 
     public void TakeDamage(int dmg)
     {
-        hp -= dmg;
+        hp -= dmg + LevelUpScript.levelup.extraDmg;
         Debug.Log("Enemy took damage " + hp + " hp remaining");
         StartCoroutine(SlowForTime());
         StartCoroutine(ShowTakenDamage(dmg));

@@ -8,7 +8,10 @@ public class XpManager : MonoBehaviour
     [SerializeField]
     private Slider slider;
 
-
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         slider.value = progress;
@@ -21,11 +24,13 @@ public class XpManager : MonoBehaviour
 
     private void CheckIfMaxProgress()
     {
-        if(progress >= slider.maxValue)
+        if (progress >= slider.maxValue)
         {
-            Debug.Log("Player leveled up, this works!");
+            LevelUpScript.levelup.LevelUp();
             progress = 0;
             slider.maxValue += 5;
         }
     }
+
+
 }

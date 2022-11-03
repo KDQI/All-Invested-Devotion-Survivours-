@@ -12,14 +12,16 @@ public class Weapon : MonoBehaviour
     private GameObject graphics;
     private Animator anim;
 
-    [SerializeField]
-    private float startFireRate;
+    
     private float fireRate;
 
+
+    public static Weapon wpn;
     private void Awake()
     {
+        wpn = this;
         anim = graphics.GetComponent<Animator>();
-        fireRate = startFireRate;
+        fireRate = LevelUpScript.levelup.fireRate;
     }
 
     public void Update()
@@ -34,7 +36,7 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.transform.rotation);
-        fireRate = startFireRate;
+        fireRate = LevelUpScript.levelup.fireRate;
         anim.speed = 1.2f / fireRate;
         anim.SetTrigger("Reload");
     }
